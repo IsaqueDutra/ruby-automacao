@@ -1,24 +1,39 @@
+describe "forms" do
+  it "login com sucesso" do
+    visit "/login"
 
+    #fill_in seleciona o campo
+    #with inseri um texto
+    fill_in "userId", with: "stark"
+    fill_in "password", with: "jarvis!"
 
+    #clica no botão
+    click_button "Login"
 
-describe 'forms' do
+    expect(find("#flash").visible?).to be true
 
-    it 'login com sucesso' do
-        visit '/login'
+    #Pergunta se na string contem o elemento "Texto"
+    #expect(find('#flash').text).to include 'Olá, Tony Stark. Você acessou a área logada!'
 
-        fill_in 'userId', with: 'stark'
-        fill_in 'password', with: 'jarvis!'
+    #Pergunta se no elemento contem o texto
+    expect(find("#flash")).to have_content "Olá, Tony Stark. Você acessou a área logada!"
+  end
 
-        click_button 'Login'
+  it "usuario incorreta" do
+    visit "/login"
 
-        expect(find('#flash').visible?).to be true 
+    fill_in "userId", with: "starc"
+    fill_in "password", with: "jarvis!"
+    click_button "Login"
+    expect(find("#flash-messages")).to have_content "O usuário informado não está cadastrado!"
+  end
 
-        #Pergunta se na string contem o elemento "Texto"
-        #expect(find('#flash').text).to include 'Olá, Tony Stark. Você acessou a área logada!'
-        
-        #Pergunta se no elemento contem o texto
-         expect(find('#flash')).to have_content 'Olá, Tony Stark. Você acessou a área logada!'
-        sleep 1
-    end
+  it "senha incorreta" do
+    visit "/login"
 
+    fill_in "userId", with: "stark"
+    fill_in "password", with: "jarvys"
+    click_button "Login"
+    expect(find("#flash-messages")).to have_content "Senha é invalida!"
+  end
 end
