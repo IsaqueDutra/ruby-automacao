@@ -1,6 +1,9 @@
 describe "forms" do
-  it "login com sucesso" do
+  before(:each) do
     visit "/login"
+  end
+
+  it "login com sucesso" do
 
     #fill_in seleciona o campo
     #with inseri um texto
@@ -20,8 +23,6 @@ describe "forms" do
   end
 
   it "usuario incorreta" do
-    visit "/login"
-
     fill_in "userId", with: "starc"
     fill_in "password", with: "jarvis!"
     click_button "Login"
@@ -29,8 +30,6 @@ describe "forms" do
   end
 
   it "senha incorreta" do
-    visit "/login"
-
     fill_in "userId", with: "stark"
     fill_in "password", with: "jarvys"
     click_button "Login"
