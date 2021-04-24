@@ -14,7 +14,7 @@ describe 'mouse Hover', :hovers do
   end
 
 
-  it 'quando passo o mouse sobre o pantera negra' do
+  it 'quando passo o mouse sobre o homem aranha' do
     card = find ('img[alt="Homem Aranha"]')
     card.hover
   end
