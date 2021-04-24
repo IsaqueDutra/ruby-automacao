@@ -5,8 +5,8 @@ describe "forms" do
 
   it "login com sucesso" do
 
-    #fill_in seleciona o campo
-    #with inseri um texto
+    #fill_in preeencha o campo
+    #with com o texto
     fill_in "userId", with: "stark"
     fill_in "password", with: "jarvis!"
 

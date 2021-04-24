@@ -1,12 +1,9 @@
 describe "Primeiros passos" do
-
-    it "visitar a pagina" do 
+  before(:each) do
     visit "/"
-        expect(page.title).to eql "Training Wheels Protocol"
+  end
 
-        sleep 1#temporario
-
-    end
-
+  it "visitar a pagina" do
+    expect(page.title).to eql "Training Wheels Protocol"
+  end
 end
-
