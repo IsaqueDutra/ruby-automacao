@@ -19,6 +19,12 @@ describe 'mouse Hover', :hovers do
     card.hover
   end
 
+
+  it 'Usando expressão regular' do
+    card = find ('img[alt^=Homem]')
+    card.hover
+  end
+
   after(:each) do
     
   end
